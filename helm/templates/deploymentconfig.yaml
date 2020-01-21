@@ -1,7 +1,6 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  creationTimestamp: null
   labels:
     {{- include "helm.labels" . | nindent 4 }}
   name: {{ include "helm.fullname" . }}-busybox
@@ -14,7 +13,6 @@ spec:
     resources: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         {{- include "helm.selectorLabels" . | nindent 8 }}
     spec:
@@ -40,4 +38,3 @@ spec:
             path: /
             port: 3000
   test: false
-  triggers: null
